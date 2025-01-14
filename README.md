@@ -69,17 +69,25 @@ pip install -r requirements.txt
 
 ### 3. Настройка базы данных
 
-В файле .env укажите настройки подключения к базе данных PostgreSQL:
+1. Подключитесь к PostgreSQL через командную строку:
 
-```makefile
-DB_NAME=<имя_базы>
-DB_USER=<пользователь>
-DB_PASSWORD=<пароль>
-DB_HOST=localhost
-DB_PORT=5432
+```bash
+psql -U postgres
 ```
 
-Примените миграции:
+2. Создайте базу данных:
+
+```sql
+CREATE DATABASE todo_db
+```
+
+3. Убедитесь, что база создана:
+
+```sql
+\l
+```
+
+4. Примените миграции:
 
 ```bash
 python manage.py migrate
